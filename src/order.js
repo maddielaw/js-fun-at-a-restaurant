@@ -21,11 +21,14 @@ function listItems(deliveryOrders) {
   return itemList.join(", ");
 };
 
-function searchOrder() {
-
+function searchOrder(deliveryOrders, itemName) {
+  for (i = 0; i < deliveryOrders.length; i ++) {
+    if (deliveryOrders[i].item === itemName) {
+      return true
+    } 
+  }
+  return false
 };
-
-
 
 module.exports = {
   takeOrder,
