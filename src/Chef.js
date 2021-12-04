@@ -10,6 +10,16 @@ class Chef {
     return `Hello, ${customerName}!`;
     }
   }
+  checkForFood(foodItem) {
+    for (i = 0; i < this.restaurant.menus[foodItem.type].length; i ++) {
+      if (this.restaurant.menus[foodItem.type][i].name === foodItem.name) {
+        return `Yes, we're serving ${foodItem.name} today!`;
+      }
+    }
+    return `Sorry, we aren't serving ${foodItem.name} today.`
+  }
 };
+
+
 
 module.exports = Chef;
