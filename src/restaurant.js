@@ -18,17 +18,26 @@ function addMenuItem(newRestaurant, newMenuItem) {
     if (newRestaurant.menus[newMenuItem.type][i].name === newMenuItem.name) {
       return 
     } 
-  }
+  };
   return newRestaurant.menus[newMenuItem.type].push(newMenuItem)
-}
+};
 
 
-
+function removeMenuItem(newRestaurant, item, type) {
+  var array = newRestaurant.menus[type];
+  for (i = 0; i < array.length; i ++) {
+    if (array[i].name === item) {
+      newRestaurant.menus[type].splice(i, 1);
+      return `No one is eating our ${item} - it has been removed from the ${type} menu!`
+    } 
+  }
+  return `Sorry, we don't sell ${item}, try adding a new recipe!`
+};
 
 
 
 module.exports = {
   createRestaurant, 
   addMenuItem,
-  //removeMenuItem
+  removeMenuItem
 }
